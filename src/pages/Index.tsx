@@ -56,34 +56,44 @@ const Index = () => {
     <SiteLayout>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
-        <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-white blur-3xl animate-float" />
-          <div className="absolute bottom-10 left-10 h-96 w-96 rounded-full bg-accent blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        {/* Starfield layer */}
+        <div className="absolute inset-0 starfield opacity-80 pointer-events-none" />
+        {/* Nebula glows */}
+        <div className="absolute inset-0 opacity-60 pointer-events-none">
+          <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-cosmic blur-3xl animate-float" />
+          <div className="absolute bottom-10 left-10 h-96 w-96 rounded-full bg-nebula blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/3 left-1/2 h-56 w-56 rounded-full bg-accent/40 blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+        </div>
+        {/* Floating planet */}
+        <div aria-hidden className="absolute top-16 left-8 md:top-20 md:left-20 hidden sm:block animate-float" style={{ animationDelay: "1s" }}>
+          <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-full bg-gradient-to-br from-accent via-accent/70 to-accent/30 shadow-stellar">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tl from-transparent via-transparent to-white/40" />
+          </div>
         </div>
 
         <div className="container relative py-20 md:py-28">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-xs font-bold mb-6">
-              <Sparkles className="h-3.5 w-3.5" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/25 text-xs font-bold mb-6">
+              <Sparkles className="h-3.5 w-3.5 animate-twinkle" />
               منصة شاملة لمادة الفيزياء
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-extrabold leading-tight text-balance">
               كل ما تحتاجه في الفيزياء —
               <br />
-              <span className="text-accent">من المتوسط إلى البكالوريا</span>
+              <span className="bg-gradient-to-r from-accent via-accent to-nebula bg-clip-text text-transparent">من المتوسط إلى البكالوريا</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-2xl">
               دروس مُنظَّمة، تمارين متنوعة، حلول نموذجية، ومواضيع امتحانات سابقة. كل شيء في مكان واحد، بتصميم نظيف يساعدك على التركيز.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-elegant text-base">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-stellar text-base">
                 <Link to="/cours">
                   ابدأ بالدروس
                   <ArrowLeft className="mr-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20 hover:text-primary-foreground text-base">
+              <Button asChild size="lg" variant="outline" className="bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20 hover:text-primary-foreground text-base backdrop-blur-sm">
                 <Link to="/bacs">مواضيع البكالوريا</Link>
               </Button>
             </div>
