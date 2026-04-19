@@ -3,94 +3,120 @@
 @tailwind utilities;
 
 /* ============================================
-   Physics Hub — Design System
-   Arabic-first, professional, calm academic feel
+   Physics Hub — Cosmic Design System
+   Astronomy-inspired: deep space indigo, cosmic
+   purple, nebula cyan, stellar gold accent.
    All colors HSL.
 ============================================ */
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    /* Light: "daylight sky" — soft, calm, professional */
+    --background: 225 45% 98%;
+    --foreground: 240 50% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 240 50% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 240 50% 12%;
 
-    /* Deep academic blue */
-    --primary: 217 91% 35%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 217 91% 55%;
+    /* Cosmic indigo */
+    --primary: 245 70% 35%;
+    --primary-foreground: 225 45% 98%;
+    --primary-glow: 258 85% 62%;
 
-    --secondary: 210 40% 94%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 230 40% 95%;
+    --secondary-foreground: 240 50% 12%;
 
-    --muted: 210 40% 94%;
-    --muted-foreground: 215 16% 40%;
+    --muted: 230 35% 94%;
+    --muted-foreground: 235 16% 42%;
 
-    /* Warm gold accent */
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    /* Stellar gold (sun / star) */
+    --accent: 42 96% 56%;
+    --accent-foreground: 240 50% 12%;
+
+    /* Nebula cyan — secondary accent for gradients */
+    --nebula: 188 95% 48%;
+    --cosmic: 268 80% 58%;
+    --aurora: 165 75% 48%;
 
     --destructive: 0 84% 55%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 225 45% 98%;
 
-    --border: 214 25% 88%;
-    --input: 214 25% 88%;
-    --ring: 217 91% 45%;
+    --border: 230 30% 88%;
+    --input: 230 30% 88%;
+    --ring: 258 85% 62%;
 
-    --radius: 0.875rem;
+    --radius: 1rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 25%) 0%, hsl(217 91% 45%) 50%, hsl(189 94% 43%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 97%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 92% 55%));
+    --gradient-hero: linear-gradient(135deg,
+      hsl(245 70% 18%) 0%,
+      hsl(258 80% 32%) 35%,
+      hsl(268 80% 45%) 65%,
+      hsl(188 95% 42%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(230 40% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(42 96% 56%), hsl(28 95% 58%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(258 80% 55%), hsl(188 95% 48%));
+    --gradient-aurora: linear-gradient(135deg, hsl(165 75% 48%), hsl(188 95% 48%) 50%, hsl(258 80% 58%));
 
-    --shadow-soft: 0 4px 20px -4px hsl(217 91% 35% / 0.12);
-    --shadow-elegant: 0 20px 50px -20px hsl(217 91% 25% / 0.25);
-    --shadow-glow: 0 0 40px hsl(217 91% 55% / 0.35);
+    --shadow-soft: 0 4px 20px -4px hsl(245 70% 35% / 0.12);
+    --shadow-elegant: 0 20px 50px -20px hsl(245 70% 25% / 0.28);
+    --shadow-glow: 0 0 40px hsl(258 85% 62% / 0.45);
+    --shadow-stellar: 0 0 30px hsl(42 96% 56% / 0.4);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222 47% 7%;
-    --foreground: 210 40% 96%;
+    /* Dark: "deep space" — true cosmic night */
+    --background: 240 50% 5%;
+    --foreground: 225 40% 96%;
 
-    --card: 222 40% 11%;
-    --card-foreground: 210 40% 96%;
+    --card: 245 45% 9%;
+    --card-foreground: 225 40% 96%;
 
-    --popover: 222 40% 11%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 245 45% 9%;
+    --popover-foreground: 225 40% 96%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 7%;
-    --primary-glow: 217 91% 70%;
+    --primary: 258 90% 70%;
+    --primary-foreground: 240 50% 7%;
+    --primary-glow: 268 95% 75%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 245 35% 15%;
+    --secondary-foreground: 225 40% 96%;
 
-    --muted: 217 33% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 245 30% 13%;
+    --muted-foreground: 230 20% 70%;
 
-    --accent: 38 92% 55%;
-    --accent-foreground: 222 47% 7%;
+    --accent: 42 96% 60%;
+    --accent-foreground: 240 50% 7%;
 
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 210 40% 96%;
+    --nebula: 188 95% 55%;
+    --cosmic: 268 90% 70%;
+    --aurora: 165 80% 55%;
 
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 217 91% 60%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 225 40% 96%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 91% 18%) 50%, hsl(189 94% 25%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 40% 13%) 0%, hsl(222 40% 10%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 92% 55%));
+    --border: 245 30% 18%;
+    --input: 245 30% 18%;
+    --ring: 258 90% 70%;
 
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.4);
-    --shadow-elegant: 0 20px 50px -20px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.4);
+    --gradient-hero: linear-gradient(135deg,
+      hsl(240 60% 6%) 0%,
+      hsl(248 70% 14%) 30%,
+      hsl(268 70% 22%) 65%,
+      hsl(188 90% 22%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(245 45% 11%) 0%, hsl(245 45% 8%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(42 96% 55%), hsl(28 95% 58%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(268 90% 60%), hsl(188 95% 50%));
+    --gradient-aurora: linear-gradient(135deg, hsl(165 80% 45%), hsl(188 95% 50%) 50%, hsl(268 90% 65%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.5);
+    --shadow-elegant: 0 20px 50px -20px hsl(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 50px hsl(258 90% 70% / 0.45);
+    --shadow-stellar: 0 0 30px hsl(42 96% 60% / 0.45);
   }
 }
 
@@ -107,6 +133,18 @@
     @apply bg-background text-foreground font-arabic;
     font-feature-settings: "ss01", "cv01";
   }
+
+  /* Subtle starfield for dark mode body */
+  .dark body {
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, hsl(225 40% 96% / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 75% 70%, hsl(225 40% 96% / 0.4), transparent 50%),
+      radial-gradient(1.5px 1.5px at 50% 20%, hsl(258 90% 80% / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 85% 40%, hsl(188 95% 70% / 0.4), transparent 50%),
+      radial-gradient(1px 1px at 15% 80%, hsl(225 40% 96% / 0.4), transparent 50%);
+    background-size: 350px 350px, 280px 280px, 420px 420px, 320px 320px, 380px 380px;
+    background-attachment: fixed;
+  }
 }
 
 @layer utilities {
@@ -119,6 +157,12 @@
   .bg-gradient-accent {
     background: var(--gradient-accent);
   }
+  .bg-gradient-cosmic {
+    background: var(--gradient-cosmic);
+  }
+  .bg-gradient-aurora {
+    background: var(--gradient-aurora);
+  }
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
@@ -128,11 +172,27 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+  .shadow-stellar {
+    box-shadow: var(--shadow-stellar);
+  }
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Starfield overlay for hero sections */
+  .starfield {
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, hsl(0 0% 100% / 0.8), transparent 50%),
+      radial-gradient(1px 1px at 80% 30%, hsl(0 0% 100% / 0.6), transparent 50%),
+      radial-gradient(1.5px 1.5px at 40% 70%, hsl(0 0% 100% / 0.7), transparent 50%),
+      radial-gradient(1px 1px at 65% 85%, hsl(0 0% 100% / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 25% 55%, hsl(0 0% 100% / 0.6), transparent 50%),
+      radial-gradient(2px 2px at 90% 60%, hsl(42 96% 75% / 0.6), transparent 50%),
+      radial-gradient(1px 1px at 55% 15%, hsl(188 95% 80% / 0.6), transparent 50%);
+    background-size: 100% 100%;
   }
 }
 
@@ -152,10 +212,24 @@
   50% { transform: translateY(-12px); }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
 }
