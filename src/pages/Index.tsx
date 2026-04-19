@@ -23,9 +23,9 @@ const sections = [
   },
   {
     to: "/exercices",
-    title: "التمارين",
+    title: "مواضيع + تمارين",
     subtitle: "Exercices",
-    description: "تمارين مرتبة حسب الوحدة لتثبيت الفهم وتطوير مهارة الحل.",
+    description: "مواضيع وتمارين مرتبة حسب الوحدة لتثبيت الفهم وتطوير مهارة الحل.",
     icon: Dumbbell,
   },
   {
