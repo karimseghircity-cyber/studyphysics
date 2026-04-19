@@ -82,8 +82,10 @@ export const CategoryCard = ({
 
       <div
         className={cn(
-          "mt-auto flex items-center gap-2 text-sm font-semibold",
-          isColored ? "text-current" : "text-primary"
+          "mt-auto inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold transition-smooth",
+          isColored
+            ? "border-white/40 bg-white/15 text-current group-hover:bg-white/25 group-hover:border-white/60"
+            : "border-primary/30 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary"
         )}
       >
         <span>اكتشف المحتوى</span>
