@@ -14,11 +14,11 @@ type CategoryCardProps = {
 
 const variantStyles: Record<NonNullable<CategoryCardProps["variant"]>, string> = {
   default:
-    "bg-gradient-card border border-border hover:border-primary/40",
+    "bg-gradient-card border border-border hover:border-primary/50",
   primary:
-    "bg-gradient-hero border border-primary/30 text-primary-foreground hover:shadow-glow",
+    "bg-gradient-hero border border-primary/40 text-primary-foreground hover:shadow-glow",
   accent:
-    "bg-gradient-accent border border-accent/40 text-accent-foreground hover:shadow-glow",
+    "bg-gradient-accent border border-accent/50 text-accent-foreground hover:shadow-stellar",
 };
 
 export const CategoryCard = ({
@@ -35,28 +35,36 @@ export const CategoryCard = ({
     <Link
       to={to}
       className={cn(
-        "group relative flex flex-col gap-4 rounded-2xl p-6 md:p-7 shadow-soft hover:shadow-elegant transition-smooth hover:-translate-y-1",
+        "group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-6 md:p-7 shadow-soft hover:shadow-elegant transition-smooth hover:-translate-y-1",
         variantStyles[variant],
         className
       )}
     >
       <div
+        aria-hidden
         className={cn(
-          "flex h-14 w-14 items-center justify-center rounded-xl transition-smooth group-hover:scale-110",
+          "pointer-events-none absolute -top-16 -left-16 h-40 w-40 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-smooth",
+          isColored ? "bg-white/40" : "bg-primary/30"
+        )}
+      />
+
+      <div
+        className={cn(
+          "relative flex h-14 w-14 items-center justify-center rounded-xl transition-smooth group-hover:scale-110 group-hover:rotate-3",
           isColored
-            ? "bg-white/15 backdrop-blur-sm"
-            : "bg-primary/10 text-primary"
+            ? "bg-white/15 backdrop-blur-sm ring-1 ring-white/25"
+            : "bg-gradient-cosmic text-white shadow-glow"
         )}
       >
         <Icon className="h-7 w-7" />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="relative flex flex-col gap-1.5">
         {subtitle && (
           <span
             className={cn(
-              "text-xs font-bold tracking-wide uppercase",
-              isColored ? "text-primary-foreground/80" : "text-primary"
+              "text-xs font-bold tracking-widest uppercase",
+              isColored ? "text-primary-foreground/85" : "text-primary"
             )}
           >
             {subtitle}
@@ -82,10 +90,10 @@ export const CategoryCard = ({
 
       <div
         className={cn(
-          "mt-auto inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold transition-smooth",
+          "relative mt-auto inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold backdrop-blur-sm transition-smooth",
           isColored
-            ? "border-white/40 bg-white/15 text-current group-hover:bg-white/25 group-hover:border-white/60"
-            : "border-primary/30 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary"
+            ? "border-white/40 bg-white/15 text-current group-hover:bg-white/25 group-hover:border-white/70"
+            : "border-primary/30 bg-primary/5 text-primary group-hover:bg-gradient-cosmic group-hover:text-white group-hover:border-transparent group-hover:shadow-glow"
         )}
       >
         <span>اكتشف المحتوى</span>
