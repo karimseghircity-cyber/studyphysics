@@ -20,7 +20,7 @@ const Cours = () => {
             <CategoryCard
               key={stage.id}
               to={`/cours/${stage.id}`}
-              title={`دروس شهادة ${stage.id === "moyen" ? "التعليم المتوسط" : "البكالوريا"}`}
+              title={stage.id === "moyen" ? "متوسط" : "ثانوي"}
               subtitle={stage.subtitle}
               description={stage.description}
               icon={stage.id === "moyen" ? School : GraduationCap}
