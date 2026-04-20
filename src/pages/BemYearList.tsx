@@ -4,7 +4,7 @@ import { YearsGrid, buildYearsRange } from "@/components/YearsGrid";
 
 type Mode = "sujets" | "corrections";
 
-const BemYearList = ({ mode }: Mode extends "sujets" ? { mode: Mode } : { mode: Mode }) => {
+const BemYearList = ({ mode }: { mode: Mode }) => {
   const isSujets = mode === "sujets";
   const baseHref = isSujets ? "/bems/sujets" : "/bems/corrections";
   const years = buildYearsRange(2008, 2016);
@@ -26,11 +26,7 @@ const BemYearList = ({ mode }: Mode extends "sujets" ? { mode: Mode } : { mode: 
       />
 
       <section className="container py-12 md:py-16">
-        <YearsGrid
-          years={years}
-          prefix="BEM"
-          buildHref={(y) => `${baseHref}/${y}`}
-        />
+        <YearsGrid years={years} prefix="BEM" buildHref={(y) => `${baseHref}/${y}`} />
       </section>
     </SiteLayout>
   );
