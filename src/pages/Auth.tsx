@@ -286,6 +286,34 @@ const Auth = () => {
                     />
                   </div>
                 </div>
+
+                {/* GOLDEN OPTIONAL: study level */}
+                <div className="space-y-2 rounded-xl border-2 border-accent/40 bg-gradient-gold/10 p-3">
+                  <Label htmlFor="su-level" className="flex items-center gap-1.5 text-foreground">
+                    <Sparkles className="h-3.5 w-3.5 text-accent" />
+                    المستوى الدراسي
+                    <span className="text-[10px] font-normal text-muted-foreground">(اختياري)</span>
+                  </Label>
+                  <Select value={suStudyLevel} onValueChange={setSuStudyLevel}>
+                    <SelectTrigger id="su-level" className="bg-background">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="h-4 w-4 text-accent" />
+                        <SelectValue placeholder="اختر مستواك للتوجيه التلقائي…" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      {STUDY_LEVELS.map((l) => (
+                        <SelectItem key={l.value} value={l.value}>
+                          {l.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <p className="text-[11px] text-muted-foreground">
+                    سنوجّهك مباشرة إلى دروس مستواك بعد التسجيل ✨
+                  </p>
+                </div>
+
                 <Button type="submit" className="w-full" disabled={submitting}>
                   {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "إنشاء الحساب"}
                 </Button>

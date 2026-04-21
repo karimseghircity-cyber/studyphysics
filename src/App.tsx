@@ -27,6 +27,8 @@ import {
   YearTrimesterPage,
   YearUnitsPage,
 } from "./pages/YearStructurePages.tsx";
+import OnlineEducation from "./pages/OnlineEducation.tsx";
+import Quiz from "./pages/Quiz.tsx";
 
 const queryClient = new QueryClient();
 
