@@ -16,9 +16,9 @@ const variantStyles: Record<NonNullable<CategoryCardProps["variant"]>, string> =
   default:
     "bg-gradient-card border border-border hover:border-primary/50",
   primary:
-    "bg-gradient-hero border border-primary/40 text-primary-foreground hover:shadow-glow",
+    "bg-gradient-hero border border-white/20 hover:shadow-glow",
   accent:
-    "bg-gradient-accent border border-accent/50 text-accent-foreground hover:shadow-stellar",
+    "bg-gradient-accent border border-accent/50 hover:shadow-stellar",
 };
 
 export const CategoryCard = ({
@@ -64,7 +64,7 @@ export const CategoryCard = ({
           <span
             className={cn(
               "text-xs font-bold tracking-widest uppercase",
-              isColored ? "text-primary-foreground/85" : "text-primary"
+              isColored ? "text-on-hero opacity-90" : "text-primary"
             )}
           >
             {subtitle}
@@ -73,7 +73,7 @@ export const CategoryCard = ({
         <h3
           className={cn(
             "font-display text-xl md:text-2xl font-bold leading-tight",
-            isColored ? "text-current" : "text-foreground"
+            isColored ? "text-on-hero" : "text-foreground"
           )}
         >
           {title}
@@ -81,7 +81,7 @@ export const CategoryCard = ({
         <p
           className={cn(
             "text-sm leading-relaxed",
-            isColored ? "text-current/85" : "text-muted-foreground"
+            isColored ? "text-on-hero opacity-90" : "text-muted-foreground"
           )}
         >
           {description}
@@ -92,7 +92,7 @@ export const CategoryCard = ({
         className={cn(
           "relative mt-auto inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold backdrop-blur-sm transition-smooth",
           isColored
-            ? "border-white/40 bg-white/15 text-current group-hover:bg-white/25 group-hover:border-white/70"
+            ? "border-white/50 bg-white/20 text-on-hero group-hover:bg-white/30 group-hover:border-white/80"
             : "border-primary/30 bg-primary/5 text-primary group-hover:bg-gradient-cosmic group-hover:text-white group-hover:border-transparent group-hover:shadow-glow"
         )}
       >
