@@ -53,6 +53,7 @@ const Auth = () => {
   const [suName, setSuName] = useState("");
   const [suEmail, setSuEmail] = useState("");
   const [suPassword, setSuPassword] = useState("");
+  const [suStudyLevel, setSuStudyLevel] = useState<string>("");
 
   useEffect(() => {
     if (!authLoading && user) navigate("/", { replace: true });
@@ -91,22 +92,26 @@ const Auth = () => {
       email: suEmail,
       password: suPassword,
       displayName: suName,
+      studyLevel: suStudyLevel || undefined,
     });
     if (!parsed.success) {
       toast({ title: "خطأ", description: parsed.error.issues[0].message, variant: "destructive" });
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.auth.signUp({
+    const { data: signUpData, error } = await supabase.auth.signUp({
       email: parsed.data.email,
       password: parsed.data.password,
       options: {
         emailRedirectTo: `${window.location.origin}/`,
-        data: { display_name: parsed.data.displayName },
+        data: {
+          display_name: parsed.data.displayName,
+          study_level: parsed.data.studyLevel ?? null,
+        },
       },
     });
-    setSubmitting(false);
     if (error) {
+      setSubmitting(false);
       toast({
         title: "فشل إنشاء الحساب",
         description: error.message.includes("already")
@@ -116,8 +121,21 @@ const Auth = () => {
       });
       return;
     }
+
+    // Save study level to profile if provided
+    if (parsed.data.studyLevel && signUpData.user) {
+      await supabase
+        .from("profiles")
+        .update({ study_level: parsed.data.studyLevel })
+        .eq("id", signUpData.user.id);
+    }
+
+    setSubmitting(false);
     toast({ title: "تم إنشاء الحساب 🎉", description: "أهلاً بك في منصة الفيزياء" });
-    navigate("/", { replace: true });
+
+    // Smart redirect based on study level
+    const target = STUDY_LEVELS.find((l) => l.value === parsed.data.studyLevel)?.path ?? "/";
+    navigate(target, { replace: true });
   };
 
   const handleGoogle = async () => {
