@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
-import { Atom, Mail, Lock, User as UserIcon, Loader2 } from "lucide-react";
+import { Atom, Mail, Lock, User as UserIcon, Loader2, GraduationCap, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -9,8 +9,25 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { toast } from "@/hooks/use-toast";
+
+const STUDY_LEVELS = [
+  { value: "1AM", label: "السنة الأولى متوسط — 1AM", path: "/cours/moyen/1am" },
+  { value: "2AM", label: "السنة الثانية متوسط — 2AM", path: "/cours/moyen/2am" },
+  { value: "3AM", label: "السنة الثالثة متوسط — 3AM", path: "/cours/moyen/3am" },
+  { value: "4AM", label: "السنة الرابعة متوسط — 4AM (BEM)", path: "/cours/moyen/4am" },
+  { value: "1AS", label: "السنة الأولى ثانوي — 1AS", path: "/cours/secondaire/1as" },
+  { value: "2AS", label: "السنة الثانية ثانوي — 2AS", path: "/cours/secondaire/2as" },
+  { value: "3AS", label: "السنة الثالثة ثانوي — 3AS (BAC)", path: "/cours/secondaire/3as" },
+];
 
 const signInSchema = z.object({
   email: z.string().trim().email({ message: "بريد إلكتروني غير صالح" }).max(255),
@@ -19,6 +36,7 @@ const signInSchema = z.object({
 
 const signUpSchema = signInSchema.extend({
   displayName: z.string().trim().min(2, { message: "الاسم قصير جداً" }).max(60),
+  studyLevel: z.string().optional(),
 });
 
 const Auth = () => {
