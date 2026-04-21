@@ -3,51 +3,41 @@
 @tailwind utilities;
 
 /* ============================================
-   Physics Hub — Cosmic Design System
-   Astronomy-inspired: deep space indigo, cosmic
-   purple, nebula cyan, stellar gold accent.
+   Physics Hub — Multi-Theme Design System
+   5 themes: Cosmic (default), Royal Gold, Emerald,
+   Sapphire, Anime. Each theme has light + dark.
    All colors HSL.
 ============================================ */
 
 @layer base {
-  :root {
-    /* Light: "daylight sky" — soft, calm, professional */
+  /* ===========================================================
+     DEFAULT (COSMIC) — applied to :root for backward compat
+     =========================================================== */
+  :root,
+  .theme-cosmic {
     --background: 225 45% 98%;
     --foreground: 240 50% 12%;
-
     --card: 0 0% 100%;
     --card-foreground: 240 50% 12%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 240 50% 12%;
-
-    /* Cosmic indigo */
     --primary: 245 70% 35%;
     --primary-foreground: 225 45% 98%;
     --primary-glow: 258 85% 62%;
-
     --secondary: 230 40% 95%;
     --secondary-foreground: 240 50% 12%;
-
     --muted: 230 35% 94%;
     --muted-foreground: 235 16% 42%;
-
-    /* Stellar gold (sun / star) */
     --accent: 42 96% 56%;
     --accent-foreground: 240 50% 12%;
-
-    /* Nebula cyan — secondary accent for gradients */
     --nebula: 188 95% 48%;
     --cosmic: 268 80% 58%;
     --aurora: 165 75% 48%;
-
     --destructive: 0 84% 55%;
     --destructive-foreground: 225 45% 98%;
-
     --border: 230 30% 88%;
     --input: 230 30% 88%;
     --ring: 258 85% 62%;
-
     --radius: 1rem;
 
     --gradient-hero: linear-gradient(135deg,
@@ -59,6 +49,7 @@
     --gradient-accent: linear-gradient(135deg, hsl(42 96% 56%), hsl(28 95% 58%));
     --gradient-cosmic: linear-gradient(135deg, hsl(258 80% 55%), hsl(188 95% 48%));
     --gradient-aurora: linear-gradient(135deg, hsl(165 75% 48%), hsl(188 95% 48%) 50%, hsl(258 80% 58%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 90% 58%), hsl(38 95% 50%), hsl(30 80% 45%));
 
     --shadow-soft: 0 4px 20px -4px hsl(245 70% 35% / 0.12);
     --shadow-elegant: 0 20px 50px -20px hsl(245 70% 25% / 0.28);
@@ -68,39 +59,29 @@
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .dark {
-    /* Dark: "deep space" — true cosmic night */
+  .dark.theme-cosmic, .dark:not([class*="theme-"]) {
     --background: 240 50% 5%;
     --foreground: 225 40% 96%;
-
     --card: 245 45% 9%;
     --card-foreground: 225 40% 96%;
-
     --popover: 245 45% 9%;
     --popover-foreground: 225 40% 96%;
-
     --primary: 258 90% 70%;
     --primary-foreground: 240 50% 7%;
     --primary-glow: 268 95% 75%;
-
     --secondary: 245 35% 15%;
     --secondary-foreground: 225 40% 96%;
-
     --muted: 245 30% 13%;
-    --muted-foreground: 230 20% 70%;
-
+    --muted-foreground: 230 25% 78%;
     --accent: 42 96% 60%;
     --accent-foreground: 240 50% 7%;
-
     --nebula: 188 95% 55%;
     --cosmic: 268 90% 70%;
     --aurora: 165 80% 55%;
-
     --destructive: 0 70% 50%;
     --destructive-foreground: 225 40% 96%;
-
-    --border: 245 30% 18%;
-    --input: 245 30% 18%;
+    --border: 245 30% 22%;
+    --input: 245 30% 22%;
     --ring: 258 90% 70%;
 
     --gradient-hero: linear-gradient(135deg,
@@ -109,14 +90,323 @@
       hsl(268 70% 22%) 65%,
       hsl(188 90% 22%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(245 45% 11%) 0%, hsl(245 45% 8%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(42 96% 55%), hsl(28 95% 58%));
     --gradient-cosmic: linear-gradient(135deg, hsl(268 90% 60%), hsl(188 95% 50%));
-    --gradient-aurora: linear-gradient(135deg, hsl(165 80% 45%), hsl(188 95% 50%) 50%, hsl(268 90% 65%));
+  }
 
+  /* ===========================================================
+     ROYAL GOLD — luxury black + gold
+     =========================================================== */
+  .theme-royal-gold {
+    --background: 38 35% 96%;
+    --foreground: 30 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 30% 12%;
+    --primary: 30 25% 18%;
+    --primary-foreground: 43 90% 70%;
+    --primary-glow: 43 88% 55%;
+    --secondary: 38 30% 92%;
+    --secondary-foreground: 30 30% 12%;
+    --muted: 38 25% 90%;
+    --muted-foreground: 30 12% 38%;
+    --accent: 43 88% 52%;
+    --accent-foreground: 30 30% 12%;
+    --nebula: 38 90% 55%;
+    --cosmic: 30 25% 25%;
+    --aurora: 43 95% 60%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 25% 82%;
+    --input: 38 25% 82%;
+    --ring: 43 88% 52%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(30 30% 8%) 0%,
+      hsl(30 25% 15%) 35%,
+      hsl(35 30% 22%) 65%,
+      hsl(43 60% 35%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(38 35% 95%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(43 90% 58%), hsl(38 95% 50%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(30 25% 18%), hsl(43 88% 52%));
+    --gradient-aurora: linear-gradient(135deg, hsl(43 90% 60%), hsl(38 85% 45%) 50%, hsl(30 25% 25%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 90% 58%), hsl(38 95% 50%), hsl(30 80% 45%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(30 30% 15% / 0.15);
+    --shadow-elegant: 0 20px 50px -20px hsl(30 30% 15% / 0.35);
+    --shadow-glow: 0 0 40px hsl(43 88% 55% / 0.5);
+    --shadow-stellar: 0 0 30px hsl(43 95% 60% / 0.55);
+  }
+
+  .dark.theme-royal-gold {
+    --background: 30 25% 6%;
+    --foreground: 43 30% 92%;
+    --card: 30 25% 10%;
+    --card-foreground: 43 30% 92%;
+    --popover: 30 25% 10%;
+    --popover-foreground: 43 30% 92%;
+    --primary: 43 88% 58%;
+    --primary-foreground: 30 30% 8%;
+    --primary-glow: 43 92% 65%;
+    --secondary: 30 22% 15%;
+    --secondary-foreground: 43 30% 92%;
+    --muted: 30 20% 13%;
+    --muted-foreground: 43 18% 75%;
+    --accent: 43 92% 60%;
+    --accent-foreground: 30 30% 8%;
+    --nebula: 38 90% 55%;
+    --cosmic: 35 35% 30%;
+    --aurora: 43 95% 65%;
+    --border: 30 25% 22%;
+    --input: 30 25% 22%;
+    --ring: 43 88% 58%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(30 30% 5%) 0%,
+      hsl(30 28% 10%) 35%,
+      hsl(35 30% 18%) 65%,
+      hsl(43 60% 28%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(30 25% 11%) 0%, hsl(30 25% 8%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(35 35% 25%), hsl(43 88% 55%));
+  }
+
+  /* ===========================================================
+     EMERALD — luxe green + gold accent
+     =========================================================== */
+  .theme-emerald {
+    --background: 150 30% 97%;
+    --foreground: 160 50% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 50% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 50% 10%;
+    --primary: 160 75% 22%;
+    --primary-foreground: 150 30% 97%;
+    --primary-glow: 155 65% 42%;
+    --secondary: 150 25% 92%;
+    --secondary-foreground: 160 50% 10%;
+    --muted: 150 22% 90%;
+    --muted-foreground: 160 18% 38%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 160 50% 10%;
+    --nebula: 170 80% 45%;
+    --cosmic: 155 65% 38%;
+    --aurora: 175 70% 50%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 22% 85%;
+    --input: 150 22% 85%;
+    --ring: 155 65% 42%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(160 80% 8%) 0%,
+      hsl(160 75% 15%) 35%,
+      hsl(155 65% 25%) 65%,
+      hsl(170 75% 35%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(150 30% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45 85% 55%), hsl(40 90% 50%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(160 75% 25%), hsl(170 80% 45%));
+    --gradient-aurora: linear-gradient(135deg, hsl(175 70% 45%), hsl(170 80% 45%) 50%, hsl(155 65% 38%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 60%), hsl(40 90% 50%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(160 75% 22% / 0.15);
+    --shadow-elegant: 0 20px 50px -20px hsl(160 75% 15% / 0.35);
+    --shadow-glow: 0 0 40px hsl(155 65% 42% / 0.45);
+    --shadow-stellar: 0 0 30px hsl(45 85% 55% / 0.45);
+  }
+
+  .dark.theme-emerald {
+    --background: 160 50% 5%;
+    --foreground: 150 30% 95%;
+    --card: 160 45% 9%;
+    --card-foreground: 150 30% 95%;
+    --popover: 160 45% 9%;
+    --popover-foreground: 150 30% 95%;
+    --primary: 155 70% 50%;
+    --primary-foreground: 160 50% 7%;
+    --primary-glow: 165 80% 55%;
+    --secondary: 160 35% 15%;
+    --secondary-foreground: 150 30% 95%;
+    --muted: 160 30% 13%;
+    --muted-foreground: 150 22% 78%;
+    --accent: 45 90% 60%;
+    --accent-foreground: 160 50% 7%;
+    --nebula: 170 85% 55%;
+    --cosmic: 155 65% 50%;
+    --aurora: 175 75% 55%;
+    --border: 160 30% 22%;
+    --input: 160 30% 22%;
+    --ring: 155 70% 50%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(160 60% 5%) 0%,
+      hsl(160 70% 12%) 35%,
+      hsl(155 60% 20%) 65%,
+      hsl(170 70% 25%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(160 45% 11%) 0%, hsl(160 45% 8%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(160 75% 30%), hsl(170 85% 50%));
+  }
+
+  /* ===========================================================
+     SAPPHIRE — deep blue + silver
+     =========================================================== */
+  .theme-sapphire {
+    --background: 215 30% 97%;
+    --foreground: 220 60% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 12%;
+    --primary: 220 80% 28%;
+    --primary-foreground: 215 30% 97%;
+    --primary-glow: 215 85% 55%;
+    --secondary: 215 25% 92%;
+    --secondary-foreground: 220 60% 12%;
+    --muted: 215 22% 90%;
+    --muted-foreground: 220 18% 38%;
+    --accent: 210 25% 70%;
+    --accent-foreground: 220 60% 12%;
+    --nebula: 215 90% 55%;
+    --cosmic: 225 80% 45%;
+    --aurora: 200 85% 55%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 22% 85%;
+    --input: 215 22% 85%;
+    --ring: 215 85% 55%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(225 70% 10%) 0%,
+      hsl(220 75% 18%) 35%,
+      hsl(215 80% 32%) 65%,
+      hsl(210 85% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 30% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 30% 75%), hsl(215 35% 65%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(225 80% 35%), hsl(215 90% 55%));
+    --gradient-aurora: linear-gradient(135deg, hsl(200 85% 50%), hsl(215 90% 55%) 50%, hsl(225 80% 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(210 30% 80%), hsl(215 35% 65%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(220 80% 28% / 0.15);
+    --shadow-elegant: 0 20px 50px -20px hsl(220 80% 18% / 0.35);
+    --shadow-glow: 0 0 40px hsl(215 85% 55% / 0.45);
+    --shadow-stellar: 0 0 30px hsl(210 30% 75% / 0.45);
+  }
+
+  .dark.theme-sapphire {
+    --background: 225 60% 5%;
+    --foreground: 215 30% 95%;
+    --card: 225 50% 9%;
+    --card-foreground: 215 30% 95%;
+    --popover: 225 50% 9%;
+    --popover-foreground: 215 30% 95%;
+    --primary: 215 90% 65%;
+    --primary-foreground: 225 60% 7%;
+    --primary-glow: 210 95% 70%;
+    --secondary: 225 40% 15%;
+    --secondary-foreground: 215 30% 95%;
+    --muted: 225 35% 13%;
+    --muted-foreground: 215 22% 78%;
+    --accent: 210 30% 75%;
+    --accent-foreground: 225 60% 7%;
+    --nebula: 215 90% 60%;
+    --cosmic: 225 85% 60%;
+    --aurora: 200 90% 60%;
+    --border: 225 35% 22%;
+    --input: 225 35% 22%;
+    --ring: 215 90% 65%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(225 70% 5%) 0%,
+      hsl(220 75% 13%) 35%,
+      hsl(215 75% 22%) 65%,
+      hsl(210 75% 30%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(225 50% 11%) 0%, hsl(225 50% 8%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(225 85% 40%), hsl(215 90% 60%));
+  }
+
+  /* ===========================================================
+     ANIME JAPAN — vibrant pink + cyan + sun
+     =========================================================== */
+  .theme-anime {
+    --background: 340 50% 98%;
+    --foreground: 280 40% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 280 40% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 40% 15%;
+    --primary: 340 85% 55%;
+    --primary-foreground: 340 50% 98%;
+    --primary-glow: 280 80% 65%;
+    --secondary: 340 30% 94%;
+    --secondary-foreground: 280 40% 15%;
+    --muted: 340 25% 93%;
+    --muted-foreground: 280 18% 40%;
+    --accent: 50 100% 60%;
+    --accent-foreground: 280 40% 15%;
+    --nebula: 195 95% 60%;
+    --cosmic: 280 80% 65%;
+    --aurora: 165 85% 55%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 340 50% 98%;
+    --border: 340 25% 88%;
+    --input: 340 25% 88%;
+    --ring: 280 80% 65%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(340 85% 55%) 0%,
+      hsl(310 80% 60%) 35%,
+      hsl(280 80% 60%) 65%,
+      hsl(195 95% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(340 40% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(50 100% 62%), hsl(40 100% 58%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(280 80% 65%), hsl(195 95% 60%));
+    --gradient-aurora: linear-gradient(135deg, hsl(340 85% 60%), hsl(280 80% 65%) 50%, hsl(195 95% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(50 100% 65%), hsl(40 100% 55%));
+
+    --shadow-soft: 0 4px 20px -4px hsl(340 85% 55% / 0.18);
+    --shadow-elegant: 0 20px 50px -20px hsl(340 80% 40% / 0.35);
+    --shadow-glow: 0 0 40px hsl(280 80% 65% / 0.5);
+    --shadow-stellar: 0 0 30px hsl(50 100% 60% / 0.5);
+  }
+
+  .dark.theme-anime {
+    --background: 280 45% 6%;
+    --foreground: 340 30% 96%;
+    --card: 280 40% 10%;
+    --card-foreground: 340 30% 96%;
+    --popover: 280 40% 10%;
+    --popover-foreground: 340 30% 96%;
+    --primary: 340 90% 65%;
+    --primary-foreground: 280 45% 8%;
+    --primary-glow: 280 85% 70%;
+    --secondary: 280 30% 16%;
+    --secondary-foreground: 340 30% 96%;
+    --muted: 280 25% 14%;
+    --muted-foreground: 340 22% 80%;
+    --accent: 50 100% 65%;
+    --accent-foreground: 280 45% 8%;
+    --nebula: 195 95% 60%;
+    --cosmic: 280 85% 70%;
+    --aurora: 165 85% 60%;
+    --border: 280 28% 22%;
+    --input: 280 28% 22%;
+    --ring: 340 90% 65%;
+
+    --gradient-hero: linear-gradient(135deg,
+      hsl(280 50% 8%) 0%,
+      hsl(310 60% 18%) 35%,
+      hsl(340 70% 30%) 65%,
+      hsl(195 80% 30%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(280 40% 12%) 0%, hsl(280 40% 9%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(280 80% 50%), hsl(195 90% 55%));
+  }
+
+  /* ===========================================================
+     Common dark-mode shadow boost (all themes)
+     =========================================================== */
+  .dark {
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.5);
     --shadow-elegant: 0 20px 50px -20px hsl(0 0% 0% / 0.7);
-    --shadow-glow: 0 0 50px hsl(258 90% 70% / 0.45);
-    --shadow-stellar: 0 0 30px hsl(42 96% 60% / 0.45);
   }
 }
 
@@ -132,55 +422,35 @@
   body {
     @apply bg-background text-foreground font-arabic;
     font-feature-settings: "ss01", "cv01";
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   /* Subtle starfield for dark mode body */
   .dark body {
     background-image:
-      radial-gradient(1px 1px at 20% 30%, hsl(225 40% 96% / 0.5), transparent 50%),
-      radial-gradient(1px 1px at 75% 70%, hsl(225 40% 96% / 0.4), transparent 50%),
-      radial-gradient(1.5px 1.5px at 50% 20%, hsl(258 90% 80% / 0.5), transparent 50%),
-      radial-gradient(1px 1px at 85% 40%, hsl(188 95% 70% / 0.4), transparent 50%),
-      radial-gradient(1px 1px at 15% 80%, hsl(225 40% 96% / 0.4), transparent 50%);
+      radial-gradient(1px 1px at 20% 30%, hsl(var(--foreground) / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 75% 70%, hsl(var(--foreground) / 0.4), transparent 50%),
+      radial-gradient(1.5px 1.5px at 50% 20%, hsl(var(--primary-glow) / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 85% 40%, hsl(var(--nebula) / 0.4), transparent 50%),
+      radial-gradient(1px 1px at 15% 80%, hsl(var(--foreground) / 0.4), transparent 50%);
     background-size: 350px 350px, 280px 280px, 420px 420px, 320px 320px, 380px 380px;
     background-attachment: fixed;
   }
 }
 
 @layer utilities {
-  .bg-gradient-hero {
-    background: var(--gradient-hero);
-  }
-  .bg-gradient-card {
-    background: var(--gradient-card);
-  }
-  .bg-gradient-accent {
-    background: var(--gradient-accent);
-  }
-  .bg-gradient-cosmic {
-    background: var(--gradient-cosmic);
-  }
-  .bg-gradient-aurora {
-    background: var(--gradient-aurora);
-  }
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
-  }
-  .shadow-elegant {
-    box-shadow: var(--shadow-elegant);
-  }
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-  .shadow-stellar {
-    box-shadow: var(--shadow-stellar);
-  }
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-  .text-balance {
-    text-wrap: balance;
-  }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-cosmic { background: var(--gradient-cosmic); }
+  .bg-gradient-aurora { background: var(--gradient-aurora); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-stellar { box-shadow: var(--shadow-stellar); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .text-balance { text-wrap: balance; }
 
   /* Starfield overlay for hero sections */
   .starfield {
@@ -190,46 +460,50 @@
       radial-gradient(1.5px 1.5px at 40% 70%, hsl(0 0% 100% / 0.7), transparent 50%),
       radial-gradient(1px 1px at 65% 85%, hsl(0 0% 100% / 0.5), transparent 50%),
       radial-gradient(1px 1px at 25% 55%, hsl(0 0% 100% / 0.6), transparent 50%),
-      radial-gradient(2px 2px at 90% 60%, hsl(42 96% 75% / 0.6), transparent 50%),
-      radial-gradient(1px 1px at 55% 15%, hsl(188 95% 80% / 0.6), transparent 50%);
+      radial-gradient(2px 2px at 90% 60%, hsl(var(--accent) / 0.7), transparent 50%),
+      radial-gradient(1px 1px at 55% 15%, hsl(var(--nebula) / 0.6), transparent 50%);
     background-size: 100% 100%;
+  }
+
+  /* Outlined readable text on colored cards (dark mode safety) */
+  .text-on-hero {
+    color: hsl(0 0% 100%);
+    text-shadow: 0 1px 3px hsl(0 0% 0% / 0.45);
   }
 }
 
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
 }
-
 @keyframes twinkle {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
-
 @keyframes orbit {
   from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
   to { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
 }
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes coin-pop {
+  0% { transform: scale(0.6) rotate(-12deg); opacity: 0; }
+  50% { transform: scale(1.15) rotate(6deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+.animate-coin-pop { animation: coin-pop 0.4s ease-out; }
+.animate-shine {
+  background: linear-gradient(110deg, transparent 30%, hsl(0 0% 100% / 0.3) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shine 2.5s linear infinite;
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
-import { Atom, Mail, Lock, User as UserIcon, Loader2 } from "lucide-react";
+import { Atom, Mail, Lock, User as UserIcon, Loader2, GraduationCap, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -9,8 +9,25 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { toast } from "@/hooks/use-toast";
+
+const STUDY_LEVELS = [
+  { value: "1AM", label: "السنة الأولى متوسط — 1AM", path: "/cours/moyen/1am" },
+  { value: "2AM", label: "السنة الثانية متوسط — 2AM", path: "/cours/moyen/2am" },
+  { value: "3AM", label: "السنة الثالثة متوسط — 3AM", path: "/cours/moyen/3am" },
+  { value: "4AM", label: "السنة الرابعة متوسط — 4AM (BEM)", path: "/cours/moyen/4am" },
+  { value: "1AS", label: "السنة الأولى ثانوي — 1AS", path: "/cours/secondaire/1as" },
+  { value: "2AS", label: "السنة الثانية ثانوي — 2AS", path: "/cours/secondaire/2as" },
+  { value: "3AS", label: "السنة الثالثة ثانوي — 3AS (BAC)", path: "/cours/secondaire/3as" },
+];
 
 const signInSchema = z.object({
   email: z.string().trim().email({ message: "بريد إلكتروني غير صالح" }).max(255),
@@ -19,6 +36,7 @@ const signInSchema = z.object({
 
 const signUpSchema = signInSchema.extend({
   displayName: z.string().trim().min(2, { message: "الاسم قصير جداً" }).max(60),
+  studyLevel: z.string().optional(),
 });
 
 const Auth = () => {
@@ -35,6 +53,7 @@ const Auth = () => {
   const [suName, setSuName] = useState("");
   const [suEmail, setSuEmail] = useState("");
   const [suPassword, setSuPassword] = useState("");
+  const [suStudyLevel, setSuStudyLevel] = useState<string>("");
 
   useEffect(() => {
     if (!authLoading && user) navigate("/", { replace: true });
@@ -73,22 +92,26 @@ const Auth = () => {
       email: suEmail,
       password: suPassword,
       displayName: suName,
+      studyLevel: suStudyLevel || undefined,
     });
     if (!parsed.success) {
       toast({ title: "خطأ", description: parsed.error.issues[0].message, variant: "destructive" });
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.auth.signUp({
+    const { data: signUpData, error } = await supabase.auth.signUp({
       email: parsed.data.email,
       password: parsed.data.password,
       options: {
         emailRedirectTo: `${window.location.origin}/`,
-        data: { display_name: parsed.data.displayName },
+        data: {
+          display_name: parsed.data.displayName,
+          study_level: parsed.data.studyLevel ?? null,
+        },
       },
     });
-    setSubmitting(false);
     if (error) {
+      setSubmitting(false);
       toast({
         title: "فشل إنشاء الحساب",
         description: error.message.includes("already")
@@ -98,8 +121,21 @@ const Auth = () => {
       });
       return;
     }
+
+    // Save study level to profile if provided
+    if (parsed.data.studyLevel && signUpData.user) {
+      await supabase
+        .from("profiles")
+        .update({ study_level: parsed.data.studyLevel })
+        .eq("id", signUpData.user.id);
+    }
+
+    setSubmitting(false);
     toast({ title: "تم إنشاء الحساب 🎉", description: "أهلاً بك في منصة الفيزياء" });
-    navigate("/", { replace: true });
+
+    // Smart redirect based on study level
+    const target = STUDY_LEVELS.find((l) => l.value === parsed.data.studyLevel)?.path ?? "/";
+    navigate(target, { replace: true });
   };
 
   const handleGoogle = async () => {
@@ -250,6 +286,34 @@ const Auth = () => {
                     />
                   </div>
                 </div>
+
+                {/* GOLDEN OPTIONAL: study level */}
+                <div className="space-y-2 rounded-xl border-2 border-accent/40 bg-gradient-gold/10 p-3">
+                  <Label htmlFor="su-level" className="flex items-center gap-1.5 text-foreground">
+                    <Sparkles className="h-3.5 w-3.5 text-accent" />
+                    المستوى الدراسي
+                    <span className="text-[10px] font-normal text-muted-foreground">(اختياري)</span>
+                  </Label>
+                  <Select value={suStudyLevel} onValueChange={setSuStudyLevel}>
+                    <SelectTrigger id="su-level" className="bg-background">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="h-4 w-4 text-accent" />
+                        <SelectValue placeholder="اختر مستواك للتوجيه التلقائي…" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      {STUDY_LEVELS.map((l) => (
+                        <SelectItem key={l.value} value={l.value}>
+                          {l.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <p className="text-[11px] text-muted-foreground">
+                    سنوجّهك مباشرة إلى دروس مستواك بعد التسجيل ✨
+                  </p>
+                </div>
+
                 <Button type="submit" className="w-full" disabled={submitting}>
                   {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "إنشاء الحساب"}
                 </Button>

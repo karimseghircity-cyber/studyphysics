@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Atom, Menu, X, LogIn, LogOut, User as UserIcon } from "lucide-react";
+import { Atom, Menu, X, LogIn, LogOut } from "lucide-react";
 import { useState } from "react";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle, ColorThemePicker } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -22,6 +22,8 @@ const navItems = [
   { to: "/solutions", label: "الحلول" },
   { to: "/bacs", label: "مواضيع البكالوريا" },
   { to: "/bems", label: "مواضيع الـ BEM" },
+  { to: "/online", label: "التعليم عن بُعد" },
+  { to: "/quiz", label: "Quizz" },
 ];
 
 export const Header = () => {
@@ -73,7 +75,8 @@ export const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          <ColorThemePicker />
           <ThemeToggle />
 
           {user ? (
