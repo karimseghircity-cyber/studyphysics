@@ -192,6 +192,34 @@ const App = () => (
                 }
               />
 
+              {/* Online Education */}
+              <Route path="/online" element={<OnlineEducation />} />
+              <Route
+                path="/online/teacher-at-home"
+                element={
+                  <ComingSoonPage
+                    eyebrow="Teacher at Home"
+                    title="أستاذك في منزلك"
+                    description="حصص خاصة، فردية أو مجموعات صغيرة. سيتم فتح الحجز قريباً."
+                    crumbs={[{ label: "التعليم عن بُعد", to: "/online" }]}
+                  />
+                }
+              />
+              <Route
+                path="/online/zoom"
+                element={
+                  <ComingSoonPage
+                    eyebrow="Zoom Live"
+                    title="حصص Zoom المباشرة"
+                    description="حصص جماعية حية مباشرة. سيتم فتح التسجيل قريباً."
+                    crumbs={[{ label: "التعليم عن بُعد", to: "/online" }]}
+                  />
+                }
+              />
+
+              {/* Quiz game */}
+              <Route path="/quiz" element={<Quiz />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
