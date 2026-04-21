@@ -16,25 +16,61 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
+          coins: number
           created_at: string
           display_name: string | null
           email: string | null
           id: string
+          preferred_theme: string | null
+          study_level: string | null
           updated_at: string
         }
         Insert: {
+          coins?: number
           created_at?: string
           display_name?: string | null
           email?: string | null
           id: string
+          preferred_theme?: string | null
+          study_level?: string | null
           updated_at?: string
         }
         Update: {
+          coins?: number
           created_at?: string
           display_name?: string | null
           email?: string | null
           id?: string
+          preferred_theme?: string | null
+          study_level?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      quiz_attempts: {
+        Row: {
+          coins_earned: number
+          created_at: string
+          id: string
+          score: number
+          total_questions: number
+          user_id: string
+        }
+        Insert: {
+          coins_earned?: number
+          created_at?: string
+          id?: string
+          score?: number
+          total_questions?: number
+          user_id: string
+        }
+        Update: {
+          coins_earned?: number
+          created_at?: string
+          id?: string
+          score?: number
+          total_questions?: number
+          user_id?: string
         }
         Relationships: []
       }
@@ -43,7 +79,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      award_coins: { Args: { _amount: number }; Returns: number }
     }
     Enums: {
       [_ in never]: never
