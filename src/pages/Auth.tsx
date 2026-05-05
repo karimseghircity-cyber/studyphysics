@@ -131,7 +131,7 @@ const Auth = () => {
     }
 
     setSubmitting(false);
-    toast({ title: "تم إنشاء الحساب 🎉", description: "أهلاً بك في منصة الفيزياء" });
+    toast({ title: "تم إنشاء الحساب 🎉", description: "أهلاً بك في Physica" });
 
     // Smart redirect based on study level
     const target = STUDY_LEVELS.find((l) => l.value === parsed.data.studyLevel)?.path ?? "/";
