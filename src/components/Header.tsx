@@ -18,8 +18,8 @@ import { toast } from "@/hooks/use-toast";
 const navItems = [
   { to: "/", label: "الرئيسية" },
   { to: "/cours", label: "الدروس" },
-  { to: "/exercices", label: "مواضيع + تمارين" },
-  { to: "/solutions", label: "الحلول" },
+  { to: "/exercices", label: "مواضيع + حلول" },
+  { to: "/solutions", label: "تمارين وسلاسل" },
   { to: "/bacs", label: "مواضيع البكالوريا" },
   { to: "/bems", label: "مواضيع الـ BEM" },
   { to: "/online", label: "التعليم عن بُعد" },
@@ -50,8 +50,8 @@ export const Header = () => {
             <Atom className="h-5 w-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-display text-base font-bold text-foreground">منصة الفيزياء</span>
-            <span className="text-[11px] text-muted-foreground">BAC & BEM</span>
+            <span className="font-display text-base font-extrabold tracking-tight bg-gradient-cosmic bg-clip-text text-transparent">Physica</span>
+            <span className="text-[11px] text-muted-foreground">تعلم الفيزياء بمتعة</span>
           </div>
         </Link>
 

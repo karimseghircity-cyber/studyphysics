@@ -18,8 +18,8 @@ import {
 
 const sections = [
   { to: "/cours", title: "الدروس", subtitle: "Cours", description: "ملخصات وشروحات مفصلة لجميع وحدات الفيزياء، للمتوسط والثانوي.", icon: BookOpen },
-  { to: "/exercices", title: "مواضيع + تمارين", subtitle: "Exercices", description: "مواضيع وتمارين مرتبة حسب الوحدة لتثبيت الفهم وتطوير مهارة الحل.", icon: Dumbbell },
-  { to: "/solutions", title: "الحلول", subtitle: "Solutions", description: "حلول نموذجية ومفصلة للتمارين والمواضيع، خطوة بخطوة.", icon: CheckCircle2 },
+  { to: "/exercices", title: "مواضيع + حلول", subtitle: "Sujets + Corrections", description: "مواضيع مع حلولها النموذجية، مرتبة حسب الوحدة لتثبيت الفهم.", icon: Dumbbell },
+  { to: "/solutions", title: "تمارين وسلاسل", subtitle: "Exercices & Séries", description: "سلاسل تمارين متنوعة لتطوير مهارات الحل، خطوة بخطوة.", icon: CheckCircle2 },
   { to: "/bacs", title: "مواضيع البكالوريا", subtitle: "Bacs", description: "مواضيع شهادة البكالوريا للسنوات السابقة مع التصحيح.", icon: GraduationCap },
   { to: "/bems", title: "مواضيع الـ BEM", subtitle: "Bems", description: "مواضيع شهادة التعليم المتوسط لجميع الدورات السابقة.", icon: ScrollText },
   { to: "/online", title: "التعليم عن بُعد", subtitle: "Online Education", description: "حصص حية، أستاذك في منزلك، ودروس Zoom تفاعلية.", icon: Video },
@@ -52,10 +52,14 @@ const Index = () => {
               كل ما تحتاجه في الفيزياء —
               <br />
               <span
-                className="bg-gradient-to-r from-accent via-accent to-nebula bg-clip-text"
-                style={{ WebkitTextFillColor: "transparent" }}
+                className="inline-block bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, hsl(50 100% 65%), hsl(28 100% 62%), hsl(340 95% 68%), hsl(280 95% 75%), hsl(195 100% 65%))",
+                  WebkitTextFillColor: "transparent",
+                }}
               >
-                من المتوسط إلى البكالوريا
+                من المتوسط إلى الثانوي
               </span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-on-hero opacity-95 leading-relaxed max-w-2xl">

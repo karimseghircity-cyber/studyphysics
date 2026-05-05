@@ -20,7 +20,10 @@ export const Footer = () => {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-hero">
             <Atom className="h-4 w-4 text-primary-foreground" />
           </div>
-          <span className="font-display font-bold text-foreground">منصة الفيزياء</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-display font-extrabold bg-gradient-cosmic bg-clip-text text-transparent">Physica</span>
+            <span className="text-[10px] text-muted-foreground">تجربة ممتعة تجعلك تدمن الفيزياء</span>
+          </div>
         </div>
 
         <p className="text-sm text-muted-foreground text-center order-3 md:order-2">
