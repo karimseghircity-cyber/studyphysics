@@ -8,10 +8,10 @@ const Solutions = () => {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Solutions"
-        title="الحلول"
-        description="حلول نموذجية مفصلة. اختر المرحلة الدراسية ثم السنة."
-        crumbs={[{ label: "الحلول" }]}
+        eyebrow="Exercices & Séries"
+        title="تمارين وسلاسل"
+        description="سلاسل تمارين متنوعة. اختر المرحلة الدراسية ثم السنة."
+        crumbs={[{ label: "تمارين وسلاسل" }]}
       />
 
       <section className="container py-12 md:py-16">

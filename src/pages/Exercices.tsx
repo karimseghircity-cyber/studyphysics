@@ -8,10 +8,10 @@ const Exercices = () => {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Sujets + Exercices"
-        title="مواضيع + تمارين"
-        description="اختر المرحلة الدراسية ثم السنة لاستعراض المواضيع والتمارين الخاصة بكل وحدة."
-        crumbs={[{ label: "مواضيع + تمارين" }]}
+        eyebrow="Sujets + Corrections"
+        title="مواضيع + حلول"
+        description="اختر المرحلة الدراسية ثم السنة لاستعراض المواضيع مع حلولها النموذجية."
+        crumbs={[{ label: "مواضيع + حلول" }]}
       />
 
       <section className="container py-12 md:py-16">

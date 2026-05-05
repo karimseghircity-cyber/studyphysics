@@ -18,8 +18,8 @@ import {
 
 const sections = [
   { to: "/cours", title: "الدروس", subtitle: "Cours", description: "ملخصات وشروحات مفصلة لجميع وحدات الفيزياء، للمتوسط والثانوي.", icon: BookOpen },
-  { to: "/exercices", title: "مواضيع + تمارين", subtitle: "Exercices", description: "مواضيع وتمارين مرتبة حسب الوحدة لتثبيت الفهم وتطوير مهارة الحل.", icon: Dumbbell },
-  { to: "/solutions", title: "الحلول", subtitle: "Solutions", description: "حلول نموذجية ومفصلة للتمارين والمواضيع، خطوة بخطوة.", icon: CheckCircle2 },
+  { to: "/exercices", title: "مواضيع + حلول", subtitle: "Sujets + Corrections", description: "مواضيع مع حلولها النموذجية، مرتبة حسب الوحدة لتثبيت الفهم.", icon: Dumbbell },
+  { to: "/solutions", title: "تمارين وسلاسل", subtitle: "Exercices & Séries", description: "سلاسل تمارين متنوعة لتطوير مهارات الحل، خطوة بخطوة.", icon: CheckCircle2 },
   { to: "/bacs", title: "مواضيع البكالوريا", subtitle: "Bacs", description: "مواضيع شهادة البكالوريا للسنوات السابقة مع التصحيح.", icon: GraduationCap },
   { to: "/bems", title: "مواضيع الـ BEM", subtitle: "Bems", description: "مواضيع شهادة التعليم المتوسط لجميع الدورات السابقة.", icon: ScrollText },
   { to: "/online", title: "التعليم عن بُعد", subtitle: "Online Education", description: "حصص حية، أستاذك في منزلك، ودروس Zoom تفاعلية.", icon: Video },
