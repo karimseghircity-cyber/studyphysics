@@ -172,7 +172,7 @@ const Auth = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero shadow-soft">
             <Atom className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-base font-bold text-foreground">منصة الفيزياء</span>
+          <span className="font-display text-base font-extrabold tracking-tight bg-gradient-cosmic bg-clip-text text-transparent">Physica</span>
         </Link>
         <ThemeToggle />
       </header>
@@ -184,7 +184,7 @@ const Auth = () => {
               <Atom className="h-7 w-7 text-white" />
             </div>
             <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-              أهلاً بك في منصة الفيزياء
+              أهلاً بك في Physica
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">
               سجّل دخولك للوصول إلى جميع الدروس والتمارين والمواضيع.

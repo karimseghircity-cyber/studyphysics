@@ -52,10 +52,14 @@ const Index = () => {
               كل ما تحتاجه في الفيزياء —
               <br />
               <span
-                className="bg-gradient-to-r from-accent via-accent to-nebula bg-clip-text"
-                style={{ WebkitTextFillColor: "transparent" }}
+                className="inline-block bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, hsl(50 100% 65%), hsl(28 100% 62%), hsl(340 95% 68%), hsl(280 95% 75%), hsl(195 100% 65%))",
+                  WebkitTextFillColor: "transparent",
+                }}
               >
-                من المتوسط إلى البكالوريا
+                من المتوسط إلى الثانوي
               </span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-on-hero opacity-95 leading-relaxed max-w-2xl">
