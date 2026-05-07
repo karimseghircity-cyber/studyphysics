@@ -76,12 +76,7 @@ export const ColorThemePicker = () => {
             <div className="flex-1 min-w-0">
               <div className="text-sm font-semibold leading-tight flex items-center gap-1.5">
                 {t.name}
-                {t.forcedMode === "light" && (
-                  <span className="inline-flex items-center justify-center h-4 px-1.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 text-[9px] font-bold">
-                    LIGHT
-                  </span>
-                )}
-                {t.forcedMode === "dark" && (
+              {t.forcedMode === "dark" && (
                   <span className="inline-flex items-center justify-center h-4 px-1.5 rounded bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-300 text-[9px] font-bold">
                     DARK
                   </span>

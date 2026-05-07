@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Atom, Menu, X, LogIn, LogOut } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle, ColorThemePicker } from "./theme-toggle";
+import { XPBadge } from "./XPBadge";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -23,6 +24,8 @@ const navItems = [
   { to: "/bacs", label: "مواضيع البكالوريا" },
   { to: "/bems", label: "مواضيع الـ BEM" },
   { to: "/online", label: "التعليم عن بُعد" },
+  { to: "/entertainment", label: "Entertainment" },
+  { to: "/stats", label: "إحصائياتي" },
   { to: "/quiz", label: "Quizz" },
 ];
 
@@ -46,11 +49,13 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero shadow-soft transition-smooth group-hover:scale-105">
-            <Atom className="h-5 w-5 text-primary-foreground" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-cosmic shadow-glow transition-smooth group-hover:scale-105">
+            <Atom className="h-5 w-5 text-white" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-display text-base font-extrabold tracking-tight bg-gradient-cosmic bg-clip-text text-transparent">Physica</span>
+            <span className="font-display text-xl font-black tracking-tight text-foreground">
+              Physica
+            </span>
             <span className="text-[11px] text-muted-foreground">تعلم الفيزياء بمتعة</span>
           </div>
         </Link>
@@ -76,6 +81,7 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-1">
+          <XPBadge />
           <ColorThemePicker />
           <ThemeToggle />
 
