@@ -14,6 +14,8 @@ import {
   Video,
   Trophy,
   Coins,
+  Clapperboard,
+  BarChart3,
 } from "lucide-react";
 
 const sections = [
@@ -23,6 +25,8 @@ const sections = [
   { to: "/bacs", title: "مواضيع البكالوريا", subtitle: "Bacs", description: "مواضيع شهادة البكالوريا للسنوات السابقة مع التصحيح.", icon: GraduationCap },
   { to: "/bems", title: "مواضيع الـ BEM", subtitle: "Bems", description: "مواضيع شهادة التعليم المتوسط لجميع الدورات السابقة.", icon: ScrollText },
   { to: "/online", title: "التعليم عن بُعد", subtitle: "Online Education", description: "حصص حية، أستاذك في منزلك، ودروس Zoom تفاعلية.", icon: Video },
+  { to: "/entertainment", title: "Entertainment", subtitle: "أفلام وألعاب الفيزياء", description: "Interstellar، Oppenheimer، Kerbal Space Program والمزيد.", icon: Clapperboard },
+  { to: "/stats", title: "إحصائياتي", subtitle: "Dashboard", description: "تقدّمك، نقاط قوّتك، وقت الدراسة، ومستواك بأرقام ومنحنيات.", icon: BarChart3 },
 ];
 
 const Index = () => {
