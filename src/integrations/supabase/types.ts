@@ -21,9 +21,11 @@ export type Database = {
           display_name: string | null
           email: string | null
           id: string
+          level: number
           preferred_theme: string | null
           study_level: string | null
           updated_at: string
+          xp: number
         }
         Insert: {
           coins?: number
@@ -31,9 +33,11 @@ export type Database = {
           display_name?: string | null
           email?: string | null
           id: string
+          level?: number
           preferred_theme?: string | null
           study_level?: string | null
           updated_at?: string
+          xp?: number
         }
         Update: {
           coins?: number
@@ -41,9 +45,11 @@ export type Database = {
           display_name?: string | null
           email?: string | null
           id?: string
+          level?: number
           preferred_theme?: string | null
           study_level?: string | null
           updated_at?: string
+          xp?: number
         }
         Relationships: []
       }
@@ -74,12 +80,92 @@ export type Database = {
         }
         Relationships: []
       }
+      solved_topics: {
+        Row: {
+          created_at: string
+          id: string
+          section: string
+          stage: string | null
+          topic_key: string
+          topic_label: string | null
+          user_id: string
+          xp_awarded: number
+          year: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          section: string
+          stage?: string | null
+          topic_key: string
+          topic_label?: string | null
+          user_id: string
+          xp_awarded?: number
+          year?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          section?: string
+          stage?: string | null
+          topic_key?: string
+          topic_label?: string | null
+          user_id?: string
+          xp_awarded?: number
+          year?: string | null
+        }
+        Relationships: []
+      }
+      study_sessions: {
+        Row: {
+          created_at: string
+          duration_seconds: number
+          ended_at: string | null
+          id: string
+          section: string | null
+          started_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_seconds?: number
+          ended_at?: string | null
+          id?: string
+          section?: string | null
+          started_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_seconds?: number
+          ended_at?: string | null
+          id?: string
+          section?: string | null
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
       award_coins: { Args: { _amount: number }; Returns: number }
+      mark_topic_solved: {
+        Args: {
+          _section: string
+          _stage: string
+          _topic_key: string
+          _topic_label: string
+          _year: string
+        }
+        Returns: {
+          awarded: boolean
+          new_level: number
+          new_xp: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

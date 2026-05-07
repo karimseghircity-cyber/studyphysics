@@ -29,6 +29,8 @@ import {
 } from "./pages/YearStructurePages.tsx";
 import OnlineEducation from "./pages/OnlineEducation.tsx";
 import Quiz from "./pages/Quiz.tsx";
+import Entertainment, { MoviesIndex, GamesIndex, MovieDetail, GameDetail } from "./pages/Entertainment.tsx";
+import Stats from "./pages/Stats.tsx";
 
 const queryClient = new QueryClient();
 
@@ -219,6 +221,16 @@ const App = () => (
 
               {/* Quiz game */}
               <Route path="/quiz" element={<Quiz />} />
+
+              {/* Entertainment */}
+              <Route path="/entertainment" element={<Entertainment />} />
+              <Route path="/entertainment/movies" element={<MoviesIndex />} />
+              <Route path="/entertainment/movies/:id" element={<MovieDetail />} />
+              <Route path="/entertainment/games" element={<GamesIndex />} />
+              <Route path="/entertainment/games/:id" element={<GameDetail />} />
+
+              {/* Stats / Dashboard */}
+              <Route path="/stats" element={<Stats />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
