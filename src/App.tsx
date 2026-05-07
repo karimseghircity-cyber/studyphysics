@@ -29,6 +29,8 @@ import {
 } from "./pages/YearStructurePages.tsx";
 import OnlineEducation from "./pages/OnlineEducation.tsx";
 import Quiz from "./pages/Quiz.tsx";
+import Entertainment, { MoviesIndex, GamesIndex, MovieDetail, GameDetail } from "./pages/Entertainment.tsx";
+import Stats from "./pages/Stats.tsx";
 
 const queryClient = new QueryClient();
 
