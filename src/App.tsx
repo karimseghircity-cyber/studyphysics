@@ -222,6 +222,16 @@ const App = () => (
               {/* Quiz game */}
               <Route path="/quiz" element={<Quiz />} />
 
+              {/* Entertainment */}
+              <Route path="/entertainment" element={<Entertainment />} />
+              <Route path="/entertainment/movies" element={<MoviesIndex />} />
+              <Route path="/entertainment/movies/:id" element={<MovieDetail />} />
+              <Route path="/entertainment/games" element={<GamesIndex />} />
+              <Route path="/entertainment/games/:id" element={<GameDetail />} />
+
+              {/* Stats / Dashboard */}
+              <Route path="/stats" element={<Stats />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
