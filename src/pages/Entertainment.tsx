@@ -55,17 +55,37 @@ const PosterCard = ({ item, to, kind }: { item: Movie | Game; to: string; kind: 
     to={to}
     className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-smooth"
   >
-    <div className={`relative aspect-[2/3] bg-gradient-to-br ${item.poster} flex items-center justify-center p-6`}>
-      <div className="absolute inset-0 starfield opacity-50" />
-      <div className="relative text-center">
-        {kind === "movie" ? (
-          <Film className="mx-auto h-12 w-12 text-white/80 mb-3" />
-        ) : (
-          <Gamepad2 className="mx-auto h-12 w-12 text-white/80 mb-3" />
-        )}
-        <h3 className="font-display text-xl font-black text-white drop-shadow-lg">{item.title}</h3>
-        {"year" in item && <p className="mt-1 text-xs text-white/80">{(item as Movie).year}</p>}
-      </div>
+    <div className={`relative aspect-[2/3] overflow-hidden bg-gradient-to-br ${item.poster}`}>
+      {item.posterUrl ? (
+        <>
+          <img
+            src={item.posterUrl}
+            alt={item.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+            <h3 className="font-display text-base font-extrabold drop-shadow-lg line-clamp-1">{item.title}</h3>
+            {"year" in item && <p className="text-[11px] text-white/85">{(item as Movie).year}</p>}
+          </div>
+        </>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <div className="absolute inset-0 starfield opacity-50" />
+          <div className="relative text-center">
+            {kind === "movie" ? (
+              <Film className="mx-auto h-12 w-12 text-white/80 mb-3" />
+            ) : (
+              <Gamepad2 className="mx-auto h-12 w-12 text-white/80 mb-3" />
+            )}
+            <h3 className="font-display text-xl font-black text-white drop-shadow-lg">{item.title}</h3>
+          </div>
+        </div>
+      )}
     </div>
     <div className="p-4">
       <p className="text-xs text-primary font-bold mb-1">{item.topic}</p>
