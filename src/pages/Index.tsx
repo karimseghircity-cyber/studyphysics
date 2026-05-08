@@ -59,7 +59,7 @@ const Index = () => {
                 className="inline-block bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(90deg, hsl(50 100% 65%), hsl(28 100% 62%), hsl(340 95% 68%), hsl(280 95% 75%), hsl(195 100% 65%))",
+                    "linear-gradient(90deg, hsl(188 95% 65%), hsl(258 90% 75%), hsl(330 90% 72%))",
                   WebkitTextFillColor: "transparent",
                 }}
               >

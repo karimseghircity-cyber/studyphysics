@@ -26,7 +26,12 @@ const BemYearList = ({ mode }: { mode: Mode }) => {
       />
 
       <section className="container py-12 md:py-16">
-        <YearsGrid years={years} prefix="BEM" buildHref={(y) => `${baseHref}/${y}`} />
+        <YearsGrid
+          years={years}
+          prefix="BEM"
+          buildHref={(y) => `${baseHref}/${y}`}
+          buildSolutionHref={isSujets ? (y) => `/bems/corrections/${y}` : undefined}
+        />
       </section>
     </SiteLayout>
   );

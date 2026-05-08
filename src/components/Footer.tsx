@@ -16,13 +16,13 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border bg-card/50 mt-20">
       <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-hero">
-            <Atom className="h-4 w-4 text-primary-foreground" />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-display font-extrabold bg-gradient-cosmic bg-clip-text text-transparent">Physica</span>
-            <span className="text-[10px] text-muted-foreground">تجربة ممتعة تجعلك تدمن الفيزياء</span>
+        <div className="flex flex-col items-center md:items-start gap-1.5">
+          <span className="text-[11px] text-muted-foreground">تجربة ممتعة تجعلك تدمن الفيزياء</span>
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-cosmic shadow-glow">
+              <Atom className="h-4 w-4 text-white" />
+            </div>
+            <span className="font-display text-lg font-black tracking-tight text-foreground">Physica</span>
           </div>
         </div>
 

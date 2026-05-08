@@ -28,6 +28,8 @@ import {
   YearUnitsPage,
 } from "./pages/YearStructurePages.tsx";
 import OnlineEducation from "./pages/OnlineEducation.tsx";
+import ZoomBooking from "./pages/ZoomBooking.tsx";
+import TeacherAtHome from "./pages/TeacherAtHome.tsx";
 import Quiz from "./pages/Quiz.tsx";
 import Entertainment, { MoviesIndex, GamesIndex, MovieDetail, GameDetail } from "./pages/Entertainment.tsx";
 import Stats from "./pages/Stats.tsx";
@@ -196,28 +198,8 @@ const App = () => (
 
               {/* Online Education */}
               <Route path="/online" element={<OnlineEducation />} />
-              <Route
-                path="/online/teacher-at-home"
-                element={
-                  <ComingSoonPage
-                    eyebrow="Teacher at Home"
-                    title="أستاذك في منزلك"
-                    description="حصص خاصة، فردية أو مجموعات صغيرة. سيتم فتح الحجز قريباً."
-                    crumbs={[{ label: "التعليم عن بُعد", to: "/online" }]}
-                  />
-                }
-              />
-              <Route
-                path="/online/zoom"
-                element={
-                  <ComingSoonPage
-                    eyebrow="Zoom Live"
-                    title="حصص Zoom المباشرة"
-                    description="حصص جماعية حية مباشرة. سيتم فتح التسجيل قريباً."
-                    crumbs={[{ label: "التعليم عن بُعد", to: "/online" }]}
-                  />
-                }
-              />
+              <Route path="/online/teacher-at-home" element={<TeacherAtHome />} />
+              <Route path="/online/zoom" element={<ZoomBooking />} />
 
               {/* Quiz game */}
               <Route path="/quiz" element={<Quiz />} />
