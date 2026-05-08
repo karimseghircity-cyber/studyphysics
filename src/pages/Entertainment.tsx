@@ -143,13 +143,19 @@ export const MovieDetail = () => {
         ]}
       />
       <section className="container py-12 grid md:grid-cols-[300px_1fr] gap-8">
-        <div className={`aspect-[2/3] rounded-2xl bg-gradient-to-br ${m.poster} relative shadow-elegant flex items-center justify-center p-6`}>
-          <div className="absolute inset-0 starfield opacity-50 rounded-2xl" />
-          <div className="relative text-center">
-            <Film className="mx-auto h-16 w-16 text-white/80 mb-3" />
-            <h3 className="font-display text-3xl font-black text-white drop-shadow-lg">{m.title}</h3>
-            <p className="mt-2 text-white/85">{m.year}</p>
-          </div>
+        <div className={`relative aspect-[2/3] overflow-hidden rounded-2xl bg-gradient-to-br ${m.poster} shadow-elegant`}>
+          {m.posterUrl ? (
+            <img src={m.posterUrl} alt={m.title} className="absolute inset-0 h-full w-full object-cover" />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="absolute inset-0 starfield opacity-50" />
+              <div className="relative text-center">
+                <Film className="mx-auto h-16 w-16 text-white/80 mb-3" />
+                <h3 className="font-display text-3xl font-black text-white drop-shadow-lg">{m.title}</h3>
+                <p className="mt-2 text-white/85">{m.year}</p>
+              </div>
+            </div>
+          )}
         </div>
         <Card className="p-6 md:p-8 bg-gradient-card">
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
@@ -189,13 +195,19 @@ export const GameDetail = () => {
         ]}
       />
       <section className="container py-12 grid md:grid-cols-[300px_1fr] gap-8">
-        <div className={`aspect-[2/3] rounded-2xl bg-gradient-to-br ${g.poster} relative shadow-elegant flex items-center justify-center p-6`}>
-          <div className="absolute inset-0 starfield opacity-50 rounded-2xl" />
-          <div className="relative text-center">
-            <Gamepad2 className="mx-auto h-16 w-16 text-white/80 mb-3" />
-            <h3 className="font-display text-3xl font-black text-white drop-shadow-lg">{g.title}</h3>
-            <p className="mt-2 text-white/85">{g.platform}</p>
-          </div>
+        <div className={`relative aspect-[2/3] overflow-hidden rounded-2xl bg-gradient-to-br ${g.poster} shadow-elegant`}>
+          {g.posterUrl ? (
+            <img src={g.posterUrl} alt={g.title} className="absolute inset-0 h-full w-full object-cover" />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="absolute inset-0 starfield opacity-50" />
+              <div className="relative text-center">
+                <Gamepad2 className="mx-auto h-16 w-16 text-white/80 mb-3" />
+                <h3 className="font-display text-3xl font-black text-white drop-shadow-lg">{g.title}</h3>
+                <p className="mt-2 text-white/85">{g.platform}</p>
+              </div>
+            </div>
+          )}
         </div>
         <Card className="p-6 md:p-8 bg-gradient-card">
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
