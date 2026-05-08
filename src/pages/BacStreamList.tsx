@@ -100,6 +100,7 @@ export const BacStreamYears = ({ mode }: Props) => {
           years={years}
           prefix="BAC"
           buildHref={(y) => `${baseHref}/${stream.id}/${y}`}
+          buildSolutionHref={isSujets ? (y) => `/bacs/corrections/${stream.id}/${y}` : undefined}
         />
       </section>
     </SiteLayout>
