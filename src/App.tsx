@@ -31,7 +31,16 @@ import OnlineEducation from "./pages/OnlineEducation.tsx";
 import ZoomBooking from "./pages/ZoomBooking.tsx";
 import TeacherAtHome from "./pages/TeacherAtHome.tsx";
 import Quiz from "./pages/Quiz.tsx";
-import Entertainment, { MoviesIndex, GamesIndex, MovieDetail, GameDetail } from "./pages/Entertainment.tsx";
+import Entertainment, {
+  MoviesIndex,
+  GamesIndex,
+  MovieDetail,
+  GameDetail,
+  PhysicistsIndex,
+  PhysicistDetail,
+  NobelIndex,
+  NobelDetail,
+} from "./pages/Entertainment.tsx";
 import Stats from "./pages/Stats.tsx";
 
 const queryClient = new QueryClient();
@@ -210,6 +219,10 @@ const App = () => (
               <Route path="/entertainment/movies/:id" element={<MovieDetail />} />
               <Route path="/entertainment/games" element={<GamesIndex />} />
               <Route path="/entertainment/games/:id" element={<GameDetail />} />
+              <Route path="/entertainment/physicists" element={<PhysicistsIndex />} />
+              <Route path="/entertainment/physicists/:id" element={<PhysicistDetail />} />
+              <Route path="/entertainment/nobel" element={<NobelIndex />} />
+              <Route path="/entertainment/nobel/:year" element={<NobelDetail />} />
 
               {/* Stats / Dashboard */}
               <Route path="/stats" element={<Stats />} />
