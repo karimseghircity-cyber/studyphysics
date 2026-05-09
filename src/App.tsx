@@ -219,6 +219,10 @@ const App = () => (
               <Route path="/entertainment/movies/:id" element={<MovieDetail />} />
               <Route path="/entertainment/games" element={<GamesIndex />} />
               <Route path="/entertainment/games/:id" element={<GameDetail />} />
+              <Route path="/entertainment/physicists" element={<PhysicistsIndex />} />
+              <Route path="/entertainment/physicists/:id" element={<PhysicistDetail />} />
+              <Route path="/entertainment/nobel" element={<NobelIndex />} />
+              <Route path="/entertainment/nobel/:year" element={<NobelDetail />} />
 
               {/* Stats / Dashboard */}
               <Route path="/stats" element={<Stats />} />
