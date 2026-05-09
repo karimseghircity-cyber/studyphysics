@@ -31,7 +31,16 @@ import OnlineEducation from "./pages/OnlineEducation.tsx";
 import ZoomBooking from "./pages/ZoomBooking.tsx";
 import TeacherAtHome from "./pages/TeacherAtHome.tsx";
 import Quiz from "./pages/Quiz.tsx";
-import Entertainment, { MoviesIndex, GamesIndex, MovieDetail, GameDetail } from "./pages/Entertainment.tsx";
+import Entertainment, {
+  MoviesIndex,
+  GamesIndex,
+  MovieDetail,
+  GameDetail,
+  PhysicistsIndex,
+  PhysicistDetail,
+  NobelIndex,
+  NobelDetail,
+} from "./pages/Entertainment.tsx";
 import Stats from "./pages/Stats.tsx";
 
 const queryClient = new QueryClient();
